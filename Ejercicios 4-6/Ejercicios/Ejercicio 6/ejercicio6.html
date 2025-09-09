@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Responsive con Grid</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #fafafa; padding: 20px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 200px;
+      gap: 15px;
+    }
+
+    .item {
+      background: #e1e1e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* Posiciones según la maqueta */
+    .a { grid-row: span 1; grid-column: span 1; }
+    .b { grid-row: span 2; grid-column: span 1; }
+    .c { grid-row: span 1; grid-column: span 2; }
+    .d { grid-row: span 1; grid-column: span 1; }
+    .e { grid-row: span 2; grid-column: span 1; }
+    .f { grid-row: span 1; grid-column: span 1; }
+    .g { grid-row: span 1; grid-column: span 2; }
+    .h { grid-row: span 1; grid-column: span 1; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+      }
+      .a, .b, .c, .d, .e, .f, .g, .h {
+        grid-column: span 2 !important;
+        grid-row: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item a">Item A</div>
+    <div class="item b">Item B</div>
+    <div class="item c">Item C</div>
+    <div class="item d">Item D</div>
+    <div class="item e">Item E</div>
+    <div class="item f">Item F</div>
+    <div class="item g">Item G</div>
+    <div class="item h">Item H</div>
+  </div>
+</body>
+</html>
