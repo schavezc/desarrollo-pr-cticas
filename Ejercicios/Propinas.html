@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Propinas</title>
+</head>
+<body>
+    <h1>Calculadora de Propinas</h1>
+    <label for="monto">Monto de la cuenta ($): </label>
+    <input type="number" id="monto" placeholder="Ingrese monto"><br><br>
+    
+    <label for="propina">Porcentaje de propina (%): </label>
+    <input type="number" id="propina" placeholder="Ingrese porcentaje"><br><br>
+    
+    <button onclick="calcularPropina()">Calcular</button><br><br>
+    
+    <p id="resultado"></p>
+    
+    <script>
+        function calcularPropina() {
+            const cuentaTotal = parseFloat(document.getElementById('monto').value);
+            const porcentajePropina = parseFloat(document.getElementById('propina').value);
+            
+            const propina = (cuentaTotal * porcentajePropina) / 100;
+            const totalPagar = cuentaTotal + propina;
+            
+            document.getElementById('resultado').innerHTML = `Propina: $${propina.toFixed(2)}<br>Total a pagar: $${totalPagar.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
